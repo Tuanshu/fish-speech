@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  fish-speech:
+  fish-speech-dev:
     build:
       context: .
       dockerfile: dockerfile.dev
@@ -13,6 +13,7 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              count: all
+              #count: "all"
               capabilities: [gpu]
+              device_ids: ["1"]
     command: tail -f /dev/null
