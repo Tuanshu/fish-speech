@@ -1,17 +1,13 @@
 version: '3.8'
 
 services:
-  fish-speech:
-    image: fishaudio/fish-speech:latest-dev
-    # build:
-    #   context: .
-    #   dockerfile: dockerfile.dev
+  fish-speech-dev:
+    build:
+      context: .
+      dockerfile: dockerfile.dev
     container_name: fish-speech
-    # volumes:
-    #   - ./:/exp
-    ports:
-      - "6617:7860" # api
-
+    volumes:
+      - ./:/exp
     deploy:
       resources:
         reservations:
@@ -20,4 +16,4 @@ services:
               #count: "all"
               capabilities: [gpu]
               device_ids: ["1"]
-    # command: tail -f /dev/null
+    command: tail -f /dev/null
