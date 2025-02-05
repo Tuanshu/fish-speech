@@ -3,6 +3,10 @@ version: '3.8'
 services:
   fish-speech:
     image: fishaudio/fish-speech:latest-dev
+    # 2025/2/5 原先的image改名為latest-dev-202412-with-1.4model, 當時下載的是一個暫時的版本, 沒有被加上tag
+    # 此時再次下載latest-dev (因為最新的tag v1.5.0-dev太舊了, 也是一個月前了, 感覺可能是1.5 model最一開始版本, 感覺危險), 
+    # 但看起來仍然不會是正式tag, 先不管 https://hub.docker.com/r/fishaudio/fish-speech/tags
+    # 在重新啟動服務前, 將model docker cp到/data/fish-speech, docker cp 0e8116b93363:/opt/fish-speech/checkpoints /data/fish-speech/checkpoints
     # build:
     #   context: .
     #   dockerfile: dockerfile.dev
